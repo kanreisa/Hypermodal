@@ -1,0 +1,65 @@
+div.hypermodal {
+	position: absolute;
+	top     : 0;
+	right   : 0;
+	bottom  : 0;
+	left    : 0;
+	z-index : 10000;
+	
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	
+	color: #333;
+	
+	background: black;
+	background: rgba(0, 0, 0, 0.5); }
+	
+	div.hypermodal > div {
+		position: absolute;
+		top     : 40px;
+		left    : 40px;
+		right   : 40px;
+		z-index : 1; }
+		
+		div.hypermodal > div > div {
+			margin  : 0 auto;
+			
+			border: 1px solid #333;
+			border-radius: 4px;
+			box-shadow   : 0 0 5px #555;
+			
+			background: white; }
+			
+			div.hypermodal > div > div > div {
+				padding: 10px; }
+			
+			div.hypermodal > div > div > div.hypermodal-main {
+				 }
+				
+				div.hypermodal > div > div > div.hypermodal-main > span {
+					float: right; }
+				
+				div.hypermodal > div > div > div.hypermodal-main > h3 {
+					margin: 0;
+					font-size: 18px; }
+				
+				div.hypermodal > div > div > div.hypermodal-main > p {
+					margin: 0;
+					font-size: 13px; }
+			
+			div.hypermodal > div > div > div.hypermodal-extend {
+				border-top: 1px solid #eee;
+				 }
+			
+			div.hypermodal > div > div > div.hypermodal-footer {
+				border-top: 1px solid #ccc;
+				border-bottom-right-radius: 4px;
+				border-bottom-left-radius : 4px;
+				
+				box-shadow: inset 0 1px 0 #fff;
+				
+				text-align: right;
+				
+				background: #f5f5f5; }
+				
+				div.hypermodal > div > div > div.hypermodal-footer > span {
+					 }

@@ -16,7 +16,12 @@ var Hypermodal = Class.create({
 		this.modalWidth  = p.modalWidth  || 'auto';
 		this.modalHeight = p.modalHeight || 'auto';
 		this.modalStyle  = p.modalStyle  || {};
+		this.onYes       = p.onYes       || null;
+		this.onNo        = p.onNo        || null;
+		this.onOk        = p.onOk        || null;
 		this.onClose     = p.onClose     || null;
+		this.title       = p.title       || '';
+		this.description = p.description || '';
 		
 		this.disableCloseButton = p.disableCloseButton || false;
 		this.disableCloseByMask = p.disableCloseByMask || false;
