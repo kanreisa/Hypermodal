@@ -1,3 +1,20 @@
+/*!
+ * Hypermodal/1.0 standard styles
+ *
+ * Copyright (c) 2012 Yuki KAN
+ * Licensed under the MIT-License.
+ *
+ * http://akkar.in/projects/hypermodal/
+**/
+div.hypermodal,
+div.hypermodal div,
+div.hypermodal span,
+div.hypermodal h3,
+div.hypermodal p,
+div.hypermodal a {
+	margin : 0;
+	padding: 0; }
+
 div.hypermodal {
 	position   : absolute;
 	top        : 0;
@@ -44,22 +61,25 @@ div.hypermodal {
 			div.hypermodal > div > div > div {
 				padding: 10px; }
 			
-			div.hypermodal > div > div > div.hypermodal-main {
+			div.hypermodal > div > div > div.hypermodal-header {
 				 }
 				
-				div.hypermodal > div > div > div.hypermodal-main > span.hypermodal-button {
-					float : right;
-					cursor: pointer; }
+				div.hypermodal > div > div > div.hypermodal-header > span.hypermodal-button {
+					float      : right;
+					font-weight: bold; }
 				
-				div.hypermodal > div > div > div.hypermodal-main > h3 {
+				div.hypermodal > div > div > div.hypermodal-header > span.hypermodal-button-close:hover {
+					color: #bd362f; }
+				
+				div.hypermodal > div > div > div.hypermodal-header > h3 {
 					margin   : 0;
 					font-size: 18px; }
 				
-				div.hypermodal > div > div > div.hypermodal-main > p {
+				div.hypermodal > div > div > div.hypermodal-header > p {
 					margin   : 0;
 					font-size: 13px; }
 			
-			div.hypermodal > div > div > div.hypermodal-extend {
+			div.hypermodal > div > div > div.hypermodal-content {
 				border-top: 1px solid #eee;
 				font-size : 14px; }
 			
