@@ -44,6 +44,8 @@ var Hypermodal = Class.create({
 		var modal = this._modal = new Element('div').setStyle({
 			width : this.modalWidth,
 			height: this.modalHeight
+		}).observe('click', function _safeArea(e) {
+			e.stop();
 		});
 		
 		// header
@@ -53,7 +55,7 @@ var Hypermodal = Class.create({
 				? null
 				: new Element('span', {className: 'hypermodal-button hypermodal-button-close'}).insert(
 					'&times;'
-				).observe('click', this.close.bind(this), false)
+				).observe('click', this.close.bind(this))
 			).insert(
 				new Element('h3').insert(this.title)
 			).insert(
@@ -104,7 +106,7 @@ var Hypermodal = Class.create({
 		);
 		
 		if (this.disableCloseByMask === false) {
-			base.observe('click', this.close.bind(this), false);
+			base.observe('click', this.close.bind(this));
 		}
 		
 		// set id attr
@@ -117,6 +119,13 @@ var Hypermodal = Class.create({
 		
 		// positioning
 		this.positioning();
+		
+		// appear
+		this._modal.setOpacity(0);
+		
+		this.showTimer = setTimeout(function _showTimr() {
+			this._modal.setOpacity(1);
+		}.bind(this), 50);
 		
 		// Event: onRendered
 		if (this.onRendered !== null) this.onRendered();
@@ -132,7 +141,8 @@ var Hypermodal = Class.create({
 		// Event: onBeforeClose
 		if (this.onBeforeClose !== null) if (this.onBeforeClose() === false) return;//abort closing
 		
-		// clear interval
+		// clear
+		clearTimeout(this.showTimer);
 		clearInterval(this.positioningInterval);
 		
 		// remove
@@ -160,7 +170,7 @@ var Hypermodal = Class.create({
 			var pos = (baseHeight / 2) - (modalHeight / 2);
 			
 			if (pos < 0) return;
-			console.log(pos);
+			
 			this._base.firstChild.style.top = pos + 'px';
 		}.bind(this), 50);
 	}

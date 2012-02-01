@@ -56,17 +56,31 @@ div.hypermodal {
 			border       : 1px solid #333;
 			border-radius: 4px;
 			box-shadow   : 0 0 5px #555;
-			background   : white; }
+			background   : white;
+			
+			-webkit-transition: all 0.2s ease;
+			-moz-transition   : all 0.2s ease;
+			-ms-transition    : all 0.2s ease;
+			-o-transition     : all 0.2s ease;
+			transition        : all 0.2s ease; }
 			
 			div.hypermodal > div > div > div {
 				padding: 10px; }
 			
-			div.hypermodal > div > div > div.hypermodal-header {
-				 }
+			div.hypermodal > div > div > div.hypermodal-header { }
 				
 				div.hypermodal > div > div > div.hypermodal-header > span.hypermodal-button {
 					float      : right;
 					font-weight: bold; }
+				
+				div.hypermodal > div > div > div.hypermodal-header > span.hypermodal-button-close {
+					color: #aaa;
+					
+					-webkit-transition: all 0.4s ease;
+					-moz-transition   : all 0.4s ease;
+					-ms-transition    : all 0.4s ease;
+					-o-transition     : all 0.4s ease;
+					transition        : all 0.4s ease; }
 				
 				div.hypermodal > div > div > div.hypermodal-header > span.hypermodal-button-close:hover {
 					color: #bd362f; }
@@ -109,7 +123,13 @@ div.hypermodal {
 					background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
 					background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
 					background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
-					background-image: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05)); }
+					background-image: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+					
+					-webkit-transition: all 1s ease;
+					-moz-transition   : all 1s ease;
+					-ms-transition    : all 1s ease;
+					-o-transition     : all 1s ease;
+					transition        : all 1s ease; }
 				
 				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button:hover {
 					border-color    : rgba(0, 0, 0, 0.2);
@@ -140,9 +160,3 @@ div.hypermodal {
 					background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
 					background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
 					background-image: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); }
-				
-				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-red {
-					background-color: #bd362f; }
-				
-				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-blue {
-					background-color: #04c; }
