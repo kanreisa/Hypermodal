@@ -21,6 +21,12 @@ div.hypermodal {
 	div.hypermodal .hypermodal-clearfix {
 		zoom: 1; }
 	
+	div.hypermodal .hypermodal-button {
+		cursor: pointer; }
+	
+	div.hypermodal .hypermodal-button-disabled {
+		cursor: not-allowed; }
+	
 	div.hypermodal > div {
 		position: absolute;
 		top     : 40px;
@@ -55,7 +61,7 @@ div.hypermodal {
 			
 			div.hypermodal > div > div > div.hypermodal-extend {
 				border-top: 1px solid #eee;
-				 }
+				font-size : 14px; }
 			
 			div.hypermodal > div > div > div.hypermodal-footer {
 				border-top                : 1px solid #ccc;
@@ -66,16 +72,57 @@ div.hypermodal {
 				background: #f5f5f5; }
 				
 				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button {
-					float        : right;
-					margin-left  : 5px;
-					padding      : 3px 7px 2px 7px;
-					cursor       : pointer;
-					font-size    : 14px;
-					border       : 1px solid #777;
-					border-radius: 2px;
-					background   : white; }
+					float           : right;
+					margin-left     : 5px;
+					padding         : 3px 7px 2px 7px;
+					font-size       : 14px;
+					border          : 1px solid rgba(0, 0, 0, 0.5);
+					border-radius   : 2px;
+					color           : #ddd;
+					color           : rgba(255, 255, 255, 0.8);
+					text-shadow     : 0 1px 0 rgba(0, 0, 0, 0.25);
+					box-shadow      : inset 0 1px 0 rgba(255, 255, 255, 0.3),
+					                  inset 1px 0 0 rgba(255, 255, 255, 0.15),
+					                  inset -1px 0 0 rgba(255, 255, 255, 0.15);
+					background-color: #555;
+					background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+					background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+					background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+					background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+					background-image: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05)); }
 				
-				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-disabled {
-					color        : #aaa;
-					border-color : #aaa;
-					background   : #eee; }
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button:hover {
+					border-color    : rgba(0, 0, 0, 0.2);
+					color           : #fff;
+					background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15));
+					background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15));
+					background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15));
+					background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15));
+					background-image: linear-gradient(top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.15)); }
+				
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button:active {
+					border-color    : #000;
+					background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+					background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+					background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+					background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+					background-image: linear-gradient(top, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)); }
+				
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-disabled,
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-disabled:hover {
+					color           : #ccc;
+					color           : rgba(255, 255, 255, 0.5);
+					border-color    : rgba(0, 0, 0, 0.5);
+					text-shadow     : none;
+					box-shadow      : none;
+					background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+					background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+					background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+					background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+					background-image: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); }
+				
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-red {
+					background-color: #bd362f; }
+				
+				div.hypermodal > div > div > div.hypermodal-footer > span.hypermodal-button-blue {
+					background-color: #04c; }
