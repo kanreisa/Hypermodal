@@ -16,11 +16,28 @@
 		/* TEST SCRIPT */
 		
 		function example() {
-			new Hypermodal({
+			var modal = new Hypermodal({
 				title   : 'Example: Modal dialog',
 				message : 'Hello Hypermodal',
-				content : 'blah blah blah blah...'
-			}).render();
+				content : 'blah blah blah blah...',
+				btns    : [
+					{
+						label: 'Okay',
+						color: '#04c',
+						onClick: function() { modal.close(); }
+					},
+					{
+						label: 'Yay!'
+					},
+					{
+						label: 'Do not touch me',
+						disabled: true
+					}
+				],
+				disableCloseByMask: true
+			});
+			
+			modal.render();
 		}
 	</script>
 </head>

@@ -49,7 +49,13 @@ div.hypermodal {
 		top     : 40px;
 		left    : 40px;
 		right   : 40px;
-		z-index : 1; }
+		z-index : 1;
+		
+		-webkit-transition: all 0.2s ease;
+		-moz-transition   : all 0.2s ease;
+		-ms-transition    : all 0.2s ease;
+		-o-transition     : all 0.2s ease;
+		transition        : all 0.2s ease; }
 		
 		div.hypermodal > div > div {
 			margin       : 0 auto;
