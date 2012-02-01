@@ -74,12 +74,6 @@ var Hypermodal = Class.create({
 					color   : '#04c',
 					onClick : this.close.bind(this),
 					disabled: false
-				},
-				{
-					label   : 'OK',
-					color   : '#04c',
-					onClick : this.close.bind(this),
-					disabled: false
 				}
 			];
 		}
