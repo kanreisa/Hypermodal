@@ -173,5 +173,5 @@ var Hypermodal = Class.create({
 			
 			this._base.firstChild.style.top = pos + 'px';
 		}.bind(this), 50);
-	}
+	}//<--positioning()
 });
