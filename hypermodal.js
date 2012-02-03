@@ -83,7 +83,7 @@ var Hypermodal = Class.create({
 		var footer = new Element('div', {className: 'hypermodal-footer hypermodal-clearfix'});
 		
 		this.buttons.each(function _eachBtns(btn) {
-			var button = new Element('span', {className: 'hypermodal-button'}).insert(btn.label);
+			var button = btn._button = new Element('span', {className: 'hypermodal-button'}).insert(btn.label);
 			
 			// button methods
 			btn.init = function _initBtn() {
