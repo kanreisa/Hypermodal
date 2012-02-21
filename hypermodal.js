@@ -83,14 +83,32 @@ var Hypermodal = Class.create({
 		var footer = new Element('div', {className: 'hypermodal-footer hypermodal-clearfix'});
 		
 		this.buttons.each(function _eachBtns(btn) {
-			var button = new Element('span', {className: 'hypermodal-button'}).insert(btn.label);
+			var button = btn._button = new Element('span', {className: 'hypermodal-button'}).insert(btn.label);
 			
-			if (btn.disabled === true) button.addClassName('hypermodal-button-disabled');
+			// button methods
+			btn.init = function _initBtn() {
+				if (btn.disabled === true) {
+					button.addClassName('hypermodal-button-disabled');
+					button.stopObserving('click');
+				} else {
+					button.removeClassName('hypermodal-button-disabled');
+					if (typeof btn.onClick !== 'undefined') button.observe('click', btn.onClick);
+				}
+				
+				if (typeof btn.color !== 'undefined') button.style.backgroundColor = btn.color;
+			};
 			
-			if (typeof btn.color !== 'undefined') button.style.backgroundColor = btn.color;
+			btn.enable = function _enableBtn() {
+				btn.disabled = false;
+				btn.init();
+			};
 			
-			if (typeof btn.onClick !== 'undefined') button.observe('click', btn.onClick);
+			btn.disable = function _disableBtn() {
+				btn.disabled = true;
+				btn.init();
+			};
 			
+			btn.init();
 			footer.insert(button);
 		}.bind(this));
 		

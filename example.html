@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1; IE=edge">
 	
-	<title>Hypermodal - HTML structure sample</title>
+	<title>Hypermodal - Example</title>
 	
 	<script type="text/javascript" src="prototype.js"></script>
 	
@@ -27,11 +27,21 @@
 						onClick: function() { modal.close(); }
 					},
 					{
-						label: 'Yay!'
+						label: 'Yay!',
+						onClick: function() {
+							modal.buttons[0].enable();
+							modal.buttons[1].disable();
+							modal.buttons[2].enable();
+						}
 					},
 					{
 						label: 'Do not touch me',
-						disabled: true
+						disabled: true,
+						onClick: function() {
+							modal.buttons[0].disable();
+							modal.buttons[1].enable();
+							modal.buttons[2].disable();
+						}
 					}
 				],
 				disableCloseByMask: true
