@@ -73,7 +73,7 @@ var Hypermodal = Class.create({
 			this.buttons = [
 				{
 					label   : 'OK',
-					color   : '#04c',
+					color   : '@blue',
 					onClick : this.close.bind(this),
 					disabled: false
 				}
@@ -95,7 +95,14 @@ var Hypermodal = Class.create({
 					if (typeof btn.onClick !== 'undefined') button.observe('click', btn.onClick);
 				}
 				
-				if (typeof btn.color !== 'undefined') button.style.backgroundColor = btn.color;
+				// coloring
+				if (typeof btn.color !== 'undefined') {
+					if (btn.color.charAt(0) === '@') {
+						button.addClassName('hypermodal-button-color-' + btn.color.slice(1));
+					} else {
+						button.style.backgroundColor = btn.color;
+					}
+				}
 			};
 			
 			btn.enable = function _enableBtn() {
@@ -164,7 +171,12 @@ var Hypermodal = Class.create({
 		clearInterval(this.positioningInterval);
 		
 		// remove
-		this._base.remove();
+		this._modal.setOpacity(0);
+		this._base.style.background = 'none';
+		
+		setTimeout(function _remover() {
+			this._base.remove();
+		}.bind(this), 200);
 		
 		// Event: onClose
 		if (this.onClose !== null) this.onClose();

@@ -15,7 +15,7 @@
 	<script type="text/javascript">
 		/* TEST SCRIPT */
 		
-		function example() {
+		function exampleBasic() {
 			var modal = new Hypermodal({
 				title   : 'Example: Modal dialog',
 				message : 'Hello Hypermodal',
@@ -23,22 +23,23 @@
 				btns    : [
 					{
 						label: 'Okay',
-						color: '#04c',
+						color: '@blue',
 						onClick: function() { modal.close(); }
 					},
 					{
-						label: 'Yay!',
+						label: 'Dont',
 						onClick: function() {
-							modal.buttons[0].enable();
+							modal.buttons[0].disable();
 							modal.buttons[1].disable();
 							modal.buttons[2].enable();
 						}
 					},
 					{
-						label: 'Do not touch me',
+						label: 'Yay!',
+						color: '@green',
 						disabled: true,
 						onClick: function() {
-							modal.buttons[0].disable();
+							modal.buttons[0].enable();
 							modal.buttons[1].enable();
 							modal.buttons[2].disable();
 						}
@@ -49,9 +50,25 @@
 			
 			modal.render();
 		}
+		
+		function exampleLong() {
+			var modal = new Hypermodal({
+				title   : 'Example: Large modal',
+				content : new Element('div').setStyle({
+					padding   : '5px',
+					background:'#eee',
+					height    :'2000px'
+				}).insert('long block...')
+			});
+			
+			modal.render();
+		}
 	</script>
 </head>
 <body>
-	<a href="javascript:example();">Click to create modal dialog</a>
+	<ul>
+		<li><a href="javascript:exampleBasic();">Click to create basic modal dialog</a></li>
+		<li><a href="javascript:exampleLong();">Click to create <b>long</b> modal dialog</a></li>
+	</ul>
 </body>
 </html>
