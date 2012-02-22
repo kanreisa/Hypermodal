@@ -49,23 +49,23 @@ var Hypermodal = Class.create({
 		});
 		
 		// header
-		modal.insert(
-			new Element('div', {className: 'hypermodal-header'}).insert(
-				(this.disableCloseButton)
-				? null
-				: new Element('span', {className: 'hypermodal-button hypermodal-button-close'}).insert(
-					'&times;'
-				).observe('click', this.close.bind(this))
-			).insert(
-				new Element('h3').insert(this.title)
-			).insert(
-				new Element('p').insert(this.description)
-			)
+		var header = this._modalHeader = new Element('div', {className: 'hypermodal-header'}).insert(
+			(this.disableCloseButton)
+			? null
+			: new Element('span', {className: 'hypermodal-button hypermodal-button-close'}).insert(
+				'&times;'
+			).observe('click', this.close.bind(this))
+		).insert(
+			new Element('h3').insert(this.title)
+		).insert(
+			new Element('p').insert(this.description)
 		);
+		modal.insert(this._modalHeader);
 		
 		// content
 		if (this.content !== '') {
-			modal.insert(new Element('div', {className: 'hypermodal-content'}).insert(this.content));
+			var content = this._modalContent = new Element('div', {className: 'hypermodal-content'}).insert(this.content);
+			modal.insert(content);
 		}
 		
 		// footer
@@ -80,7 +80,7 @@ var Hypermodal = Class.create({
 			];
 		}
 		
-		var footer = new Element('div', {className: 'hypermodal-footer hypermodal-clearfix'});
+		var footer = this._modalFooter = new Element('div', {className: 'hypermodal-footer hypermodal-clearfix'});
 		
 		this.buttons.each(function _eachBtns(btn) {
 			var button = btn._button = new Element('span', {className: 'hypermodal-button'}).insert(btn.label);
@@ -175,7 +175,7 @@ var Hypermodal = Class.create({
 		this._base.style.background = 'none';
 		
 		setTimeout(function _remover() {
-			this._base.remove();
+			try { this._base.remove(); } catch (e) {}
 		}.bind(this), 200);
 		
 		// Event: onClose
@@ -197,11 +197,18 @@ var Hypermodal = Class.create({
 			baseHeight  = this._base.getHeight();
 			modalHeight = this._modal.getHeight();
 			
+			var modalTop          = parseInt(this._base.firstChild.getStyle('top').replace('px', ''), 10);
+			var modalHeaderHeight = this._modalHeader.getHeight();
+			var modalFooterHeight = this._modalFooter.getHeight();
+			
 			var pos = (baseHeight / 2) - (modalHeight / 2);
+			var lim = modalHeight + baseHeight - modalHeight - (modalTop * 2) - modalHeaderHeight - modalFooterHeight;
 			
-			if (pos < 0) return;
-			
-			this._base.firstChild.style.top = pos + 'px';
+			if (pos < 0) {
+				this._modalContent.style.height = lim + 'px';
+			} else {
+				this._base.firstChild.style.top = pos + 'px';
+			}
 		}.bind(this), 50);
 	}//<--positioning()
 });

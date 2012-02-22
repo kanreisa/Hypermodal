@@ -108,7 +108,8 @@ div.hypermodal {
 			
 			div.hypermodal > div > div > div.hypermodal-content {
 				border-top: 1px solid #eee;
-				font-size : 14px; }
+				font-size : 14px;
+				overflow  : auto; }
 			
 			div.hypermodal > div > div > div.hypermodal-footer {
 				border-top                : 1px solid #ccc;
