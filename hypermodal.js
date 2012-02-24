@@ -1,5 +1,5 @@
 /*!
- * Hypermodal/1.0 for Prototype.js
+ * Hypermodal/1.1 for Prototype.js
  *
  * Copyright (c) 2012 Yuki KAN
  * Licensed under the MIT-License.

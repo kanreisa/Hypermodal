@@ -1,5 +1,5 @@
 /*!
- * Hypermodal/1.0 standard styles
+ * Hypermodal/1.1 standard styles
  *
  * Copyright (c) 2012 Yuki KAN
  * Licensed under the MIT-License.
@@ -12,18 +12,25 @@ div.hypermodal span,
 div.hypermodal h3,
 div.hypermodal p,
 div.hypermodal a {
-	margin : 0;
-	padding: 0; }
+	margin        : 0;
+	padding       : 0;
+	line-height   : 21px;
+	vertical-align: baseline;
+	border        : none;
+	font-size     : 100%;
+	font-style    : inherit;
+	font-family   : inherit; }
 
 div.hypermodal {
 	z-index    : 10000;
-	position   : absolute;
+	position   : fixed;
 	top        : 0;
 	right      : 0;
 	bottom     : 0;
 	left       : 0;
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 	color      : #333;
+	overflow   : hidden;
 	
 	background : #2b2b2b;
 	background : rgba(0, 0, 0, 0.5); }
