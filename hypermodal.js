@@ -1,5 +1,5 @@
 /*!
- * Hypermodal/1.1 for Prototype.js
+ * Hypermodal/[:version] for Prototype.js
  *
  * Copyright (c) 2012 Yuki KAN
  * Licensed under the MIT-License.
@@ -171,6 +171,10 @@ var Hypermodal = Class.create({
 		clearInterval(this.positioningInterval);
 		
 		// remove
+		this.buttons.each(function _eachBtns(btn) {
+			btn._button.stopObserving();
+		});
+		
 		this._modal.setOpacity(0);
 		this._base.style.background = 'none';
 		
