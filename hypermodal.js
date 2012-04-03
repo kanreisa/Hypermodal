@@ -1,5 +1,5 @@
 /*!
- * Hypermodal/1.11 for Prototype.js
+ * Hypermodal/1.12 for Prototype.js
  *
  * Copyright (c) 2012 Yuki KAN
  * Licensed under the MIT-License.
@@ -27,6 +27,8 @@ var Hypermodal = Class.create({
 		
 		this.disableCloseButton = p.disableCloseButton || false;
 		this.disableCloseByMask = p.disableCloseByMask || false;
+		
+		return this;
 	}//<--initialize()
 	,
 	/**
@@ -92,7 +94,11 @@ var Hypermodal = Class.create({
 					button.stopObserving('click');
 				} else {
 					button.removeClassName('hypermodal-button-disabled');
-					if (typeof btn.onClick !== 'undefined') button.observe('click', btn.onClick);
+					if (typeof btn.onClick !== 'undefined') {
+						button.observe('click', function _onClickButton(e) {
+							btn.onClick(e, btn, this);
+						}.bind(this));
+					}
 				}
 				
 				// coloring
@@ -103,7 +109,7 @@ var Hypermodal = Class.create({
 						button.style.backgroundColor = btn.color;
 					}
 				}
-			};
+			}.bind(this);
 			
 			btn.enable = function _enableBtn() {
 				btn.disabled = false;
@@ -153,7 +159,9 @@ var Hypermodal = Class.create({
 		}.bind(this), 50);
 		
 		// Event: onRendered
-		if (this.onRendered !== null) this.onRendered();
+		if (this.onRendered !== null) this.onRendered(this);
+		
+		return this;
 	}//<--render()
 	,
 	/**
@@ -164,7 +172,11 @@ var Hypermodal = Class.create({
 		if (typeof e !== 'undefined') try { e.stop(); } catch (e) {}
 		
 		// Event: onBeforeClose
-		if (this.onBeforeClose !== null) if (this.onBeforeClose() === false) return;//abort closing
+		if (this.onBeforeClose !== null) {
+			if (this.onBeforeClose(this) === false) {
+				return this;//abort closing
+			}
+		}
 		
 		// clear
 		clearTimeout(this.showTimer);
@@ -183,7 +195,9 @@ var Hypermodal = Class.create({
 		}.bind(this), 200);
 		
 		// Event: onClose
-		if (this.onClose !== null) this.onClose();
+		if (this.onClose !== null) this.onClose(this);
+		
+		return this;
 	}//<--close()
 	,
 	/**
@@ -196,7 +210,9 @@ var Hypermodal = Class.create({
 		var modalHeight = 0;
 		
 		this.positioningInterval = setInterval(function _posIntrvl() {
-			if ((baseHeight === this._base.getHeight()) && (modalHeight === this._modal.getHeight())) return;
+			if ((baseHeight === this._base.getHeight()) && (modalHeight === this._modal.getHeight())) {
+				return;
+			}
 			
 			baseHeight  = this._base.getHeight();
 			modalHeight = this._modal.getHeight();
@@ -214,5 +230,7 @@ var Hypermodal = Class.create({
 				this._base.firstChild.style.top = pos + 'px';
 			}
 		}.bind(this), 50);
+		
+		return this;
 	}//<--positioning()
 });
