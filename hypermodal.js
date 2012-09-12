@@ -13,7 +13,7 @@ var Hypermodal = Class.create({
 	initialize: function _init(p) {
 		this.modalID     = p.modalID     || null;
 		this.modalClass  = p.modalClass  || 'hypermodal';
-		this.modalWidth  = p.modalWidth  || '500px';
+		this.modalWidth  = p.modalWidth  || '';
 		this.modalHeight = p.modalHeight || 'auto';
 		
 		this.title       = p.title       || p.subject || '';
@@ -156,7 +156,7 @@ var Hypermodal = Class.create({
 		
 		this.showTimer = setTimeout(function _showTimr() {
 			this._modal.setOpacity(1);
-		}.bind(this), 50);
+		}.bind(this), 100);
 		
 		// Event: onRendered
 		if (this.onRendered !== null) this.onRendered(this);
@@ -229,7 +229,7 @@ var Hypermodal = Class.create({
 			} else {
 				this._base.firstChild.style.top = pos + 'px';
 			}
-		}.bind(this), 50);
+		}.bind(this), 30);
 		
 		return this;
 	}//<--positioning()
